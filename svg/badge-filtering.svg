@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 340" width="420" height="340">
+  <defs>
+    <filter id="s" x="-5%" y="-5%" width="115%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="rgba(220,210,180,0.25)"/>
+    </filter>
+    <linearGradient id="h" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+  </defs>
+  <rect width="420" height="340" rx="16" fill="#ffffff"/>
+  <rect x="0" y="0" width="420" height="44" rx="16" fill="#f8fafc"/>
+  <rect x="0" y="28" width="420" height="16" fill="#f8fafc"/>
+  <!-- Header title -->
+  <text x="24" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#0f172a" font-weight="700">Tag Filtering</text>
+
+  <!-- Tag filter bar -->
+  <rect x="20" y="56" width="52" height="26" rx="999" fill="url(#h)"/>
+  <text x="46" y="73" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#ffffff" font-weight="600" text-anchor="middle">All</text>
+  <rect x="80" y="56" width="44" height="26" rx="999" fill="#dbeafe" stroke="#4f46e5" stroke-width="1.5"/>
+  <text x="102" y="73" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4f46e5" font-weight="600" text-anchor="middle">work</text>
+  <rect x="132" y="56" width="50" height="26" rx="999" fill="#e0e7ff" stroke="#a5b4fc" stroke-width="1"/>
+  <text x="157" y="73" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4f46e5" font-weight="500" text-anchor="middle">ideas</text>
+  <rect x="190" y="56" width="56" height="26" rx="999" fill="#e0e7ff" stroke="#a5b4fc" stroke-width="1"/>
+  <text x="218" y="73" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4f46e5" font-weight="500" text-anchor="middle">personal</text>
+  <rect x="254" y="56" width="56" height="26" rx="999" fill="#e0e7ff" stroke="#a5b4fc" stroke-width="1"/>
+  <text x="282" y="73" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4f46e5" font-weight="500" text-anchor="middle">meeting</text>
+
+  <!-- Filtered notes -->
+  <!-- Note 1 -->
+  <g filter="url(#s)">
+    <rect x="20" y="96" width="380" height="72" rx="10" fill="#fffbe6" stroke="#e6dfc3" stroke-width="1"/>
+    <text x="32" y="118" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#332d1c" font-weight="700">Meeting notes</text>
+    <rect x="32" y="128" width="7" height="7" rx="1.5" fill="none" stroke="#332d1c" stroke-width="1"/>
+    <polyline points="32.5,131.5 35,134 39,129" stroke="#22c55e" stroke-width="1.8" fill="none"/>
+    <text x="44" y="135" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#332d1c" opacity="0.7" text-decoration="line-through">Review Q2 roadmap</text>
+    <rect x="32" y="146" width="7" height="7" rx="1.5" fill="none" stroke="#332d1c" stroke-width="1"/>
+    <text x="44" y="153" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#332d1c">Draft agenda for Wed</text>
+    <!-- Tags -->
+    <rect x="286" y="110" width="28" height="16" rx="8" fill="#dbeafe"/>
+    <text x="300" y="121" font-family="system-ui, -apple-system, sans-serif" font-size="7" fill="#1e40af" text-anchor="middle">work</text>
+    <rect x="320" y="110" width="34" height="16" rx="8" fill="#fce7f3"/>
+    <text x="337" y="121" font-family="system-ui, -apple-system, sans-serif" font-size="7" fill="#9d174d" text-anchor="middle">meeting</text>
+  </g>
+
+  <!-- Note 2 -->
+  <g filter="url(#s)">
+    <rect x="20" y="180" width="380" height="72" rx="10" fill="#fffbe6" stroke="#e6dfc3" stroke-width="1"/>
+    <text x="32" y="202" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#332d1c" font-weight="700">Time-off request</text>
+    <text x="32" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#332d1c">Submit PTO for last week of August</text>
+    <text x="32" y="238" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#332d1c">Add to shared calendar</text>
+    <!-- Tags -->
+    <rect x="286" y="194" width="28" height="16" rx="8" fill="#dbeafe"/>
+    <text x="300" y="205" font-family="system-ui, -apple-system, sans-serif" font-size="7" fill="#1e40af" text-anchor="middle">work</text>
+  </g>
+
+  <!-- Action menu hover state -->
+  <g transform="translate(378, 100)">
+    <rect x="-40" y="0" width="40" height="56" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="drop-shadow(0 4px 12px rgba(0,0,0,0.1))"/>
+    <text x="-26" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#0f172a">Pin</text>
+    <text x="-26" y="44" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#ef4444">Delete</text>
+  </g>
+
+  <!-- Pin indicator on note 1 -->
+  <g transform="translate(374, 96)">
+    <line x1="8" y1="6" x2="8" y2="14" stroke="#4f46e5" stroke-width="1.5"/>
+    <path d="M0 14h16v-1.1a1.5 1.5 0 0 0-.8-1.3l-1.3-.7A1.5 1.5 0 0 1 13 9.9V8h.8a1.5 1.5 0 0 0 0-3H2.2a1.5 1.5 0 0 0 0 3h.8v1.9a1.5 1.5 0 0 1-.8 1.3l-1.3.7A1.5 1.5 0 0 0 0 12.9Z" fill="#4f46e5"/>
+  </g>
+
+  <!-- Feature callout labels -->
+  <g transform="translate(110, 274)">
+    <rect x="-80" y="0" width="160" height="26" rx="8" fill="#f1f5f9"/>
+    <text x="0" y="17" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#64748b" font-weight="500" text-anchor="middle">Select multiple tags to filter</text>
+  </g>
+  <g transform="translate(110, 306)">
+    <rect x="-80" y="0" width="160" height="26" rx="8" fill="#f1f5f9"/>
+    <text x="0" y="17" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#64748b" font-weight="500" text-anchor="middle">Right-click ellipsis for pin/delete</text>
+  </g>
+</svg>

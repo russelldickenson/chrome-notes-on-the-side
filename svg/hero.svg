@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <!-- Subtle background gradient -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f1f5f9"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <!-- Note shadow -->
+    <filter id="noteShadow" x="-5%" y="-5%" width="115%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="rgba(220,210,180,0.4)"/>
+    </filter>
+    <!-- Header glass effect -->
+    <linearGradient id="headerGlass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.85)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.75)"/>
+    </linearGradient>
+    <!-- Indigo accent -->
+    <linearGradient id="accentBar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <!-- Checkmark -->
+    <symbol id="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"/>
+    </symbol>
+    <!-- Pin icon -->
+    <symbol id="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="17" x2="12" y2="22"/>
+      <path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V6h1a2 2 0 0 0 0-4H8a2 2 0 0 0 0 4h1v4.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24Z"/>
+    </symbol>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" rx="0" fill="url(#bgGrad)"/>
+  
+  <!-- Decorative dots pattern (subtle) -->
+  <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+    <circle cx="10" cy="10" r="0.8" fill="#cbd5e1" opacity="0.5"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#dots)" opacity="0.6"/>
+
+  <!-- Browser Window Frame -->
+  <rect x="50" y="30" width="780" height="570" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="drop-shadow(0 8px 30px rgba(0,0,0,0.08))"/>
+  
+  <!-- Browser Top Bar -->
+  <rect x="50" y="30" width="780" height="44" rx="12" fill="#f8fafc"/>
+  <rect x="50" y="62" width="780" height="12" fill="#f8fafc"/>
+  <!-- Browser window buttons -->
+  <circle cx="78" cy="52" r="6" fill="#ef4444"/>
+  <circle cx="100" cy="52" r="6" fill="#fbbf24"/>
+  <circle cx="122" cy="52" r="6" fill="#22c55e"/>
+  <!-- Browser URL bar -->
+  <rect x="160" y="44" width="300" height="20" rx="10" fill="#e2e8f0"/>
+  <text x="188" y="58" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#64748b">example.com</text>
+  
+  <!-- Browser Content Area (mock webpage) -->
+  <rect x="50" y="74" width="570" height="526" fill="#ffffff"/>
+  <!-- Mock page content lines -->
+  <rect x="80" y="100" width="180" height="12" rx="4" fill="#e2e8f0"/>
+  <rect x="80" y="126" width="500" height="8" rx="4" fill="#f1f5f9"/>
+  <rect x="80" y="142" width="480" height="8" rx="4" fill="#f1f5f9"/>
+  <rect x="80" y="158" width="510" height="8" rx="4" fill="#f1f5f9"/>
+  <rect x="80" y="174" width="460" height="8" rx="4" fill="#f1f5f9"/>
+  <rect x="80" y="200" width="400" height="8" rx="4" fill="#f1f5f9"/>
+  <rect x="80" y="216" width="440" height="8" rx="4" fill="#f1f5f9"/>
+  <rect x="80" y="232" width="380" height="8" rx="4" fill="#f1f5f9"/>
+  <rect x="80" y="258" width="300" height="12" rx="4" fill="#e2e8f0"/>
+  <rect x="80" y="284" width="490" height="8" rx="4" fill="#f1f5f9"/>
+  <rect x="80" y="300" width="510" height="8" rx="4" fill="#f1f5f9"/>
+  <rect x="80" y="316" width="460" height="8" rx="4" fill="#f1f5f9"/>
+  <rect x="80" y="332" width="480" height="8" rx="4" fill="#f1f5f9"/>
+
+  <!-- Side Panel (Chrome's side panel) -->
+  <rect x="620" y="74" width="210" height="526" rx="0" fill="#f8fafc"/>
+  <line x1="620" y1="74" x2="620" y2="600" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Side Panel Header (glassmorphic) -->
+  <rect x="620" y="74" width="210" height="48" fill="url(#headerGlass)" style="backdrop-filter: blur(12px)"/>
+  <line x1="620" y1="122" x2="830" y2="122" stroke="#e2e8f0" stroke-width="0.5"/>
+  
+  <!-- Tag filter bar inside header -->
+  <rect x="632" y="82" width="130" height="22" rx="999" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1"/>
+  <text x="645" y="97" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#4f46e5" font-weight="600">All tags</text>
+  <rect x="770" y="82" width="20" height="20" rx="4" fill="#4f46e5" cursor="pointer"/>
+  <text x="777" y="96" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#ffffff" font-weight="300">+</text>
+
+  <!-- Tag filter chips -->
+  <rect x="632" y="108" width="36" height="10" rx="5" fill="#dbeafe" opacity="0.7"/>
+  <rect x="672" y="108" width="44" height="10" rx="5" fill="#dbeafe" opacity="0.7"/>
+  <rect x="720" y="108" width="38" height="10" rx="5" fill="#dbeafe" opacity="0.7"/>
+
+  <!-- Sticky Note 1 (pinned) -->
+  <g filter="url(#noteShadow)">
+    <rect x="632" y="138" width="186" height="112" rx="10" fill="#fffbe6" stroke="#e6dfc3" stroke-width="1"/>
+    <!-- Pushpin indicator -->
+    <g transform="translate(795, 138)">
+      <use href="#pin" width="16" height="16" stroke="#4f46e5" stroke-width="1.8"/>
+    </g>
+    <!-- Note content: title -->
+    <text x="644" y="160" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#332d1c" font-weight="700">Meeting notes</text>
+    <!-- Note content: checklist -->
+    <rect x="644" y="172" width="8" height="8" rx="2" fill="none" stroke="#332d1c" stroke-width="1" opacity="0.6"/>
+    <use href="#check" x="643" y="170.5" width="10" height="10" stroke="#22c55e" stroke-width="2.5"/>
+    <text x="658" y="180" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#332d1c" opacity="0.7" text-decoration="line-through">Review Q2 roadmap</text>
+    
+    <rect x="644" y="190" width="8" height="8" rx="2" fill="none" stroke="#332d1c" stroke-width="1"/>
+    <text x="658" y="198" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#332d1c">Draft agenda for Wed</text>
+    
+    <rect x="644" y="208" width="8" height="8" rx="2" fill="none" stroke="#332d1c" stroke-width="1"/>
+    <text x="658" y="216" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#332d1c">Send follow-up email</text>
+    
+    <!-- Tags on note -->
+    <rect x="644" y="230" width="26" height="14" rx="7" fill="#dbeafe"/>
+    <text x="649" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="7" fill="#1e40af">work</text>
+    <rect x="674" y="230" width="30" height="14" rx="7" fill="#fce7f3"/>
+    <text x="679" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="7" fill="#9d174d">meeting</text>
+    <!-- Action menu ellipsis -->
+    <circle cx="810" cy="156" r="1.5" fill="#a3a38f"/>
+    <circle cx="810" cy="161" r="1.5" fill="#a3a38f"/>
+    <circle cx="810" cy="166" r="1.5" fill="#a3a38f"/>
+  </g>
+
+  <!-- Sticky Note 2 -->
+  <g filter="url(#noteShadow)">
+    <rect x="632" y="262" width="186" height="90" rx="10" fill="#fffbe6" stroke="#e6dfc3" stroke-width="1"/>
+    <!-- Note content -->
+    <text x="644" y="284" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#332d1c" font-weight="600">Ideas for blog post</text>
+    <text x="644" y="300" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#332d1c">• Chrome extension dev tips</text>
+    <text x="644" y="316" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#332d1c">• Side panel UX best practices</text>
+    <text x="644" y="332" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#332d1c">• Local storage vs sync</text>
+    <!-- Tags -->
+    <rect x="644" y="344" width="24" height="14" rx="7" fill="#fef3c7"/>
+    <text x="649" y="354" font-family="system-ui, -apple-system, sans-serif" font-size="7" fill="#92400e">ideas</text>
+  </g>
+
+  <!-- Sticky Note 3 -->
+  <g filter="url(#noteShadow)">
+    <rect x="632" y="364" width="186" height="72" rx="10" fill="#fffbe6" stroke="#e6dfc3" stroke-width="1"/>
+    <text x="644" y="386" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#332d1c" font-weight="600">Grocery list</text>
+    <rect x="644" y="398" width="7" height="7" rx="1.5" fill="none" stroke="#332d1c" stroke-width="1"/>
+    <text x="656" y="404" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#332d1c">Avocados</text>
+    <rect x="644" y="414" width="7" height="7" rx="1.5" fill="none" stroke="#332d1c" stroke-width="1"/>
+    <use href="#check" x="643" y="412.5" width="10" height="10" stroke="#22c55e" stroke-width="2.5"/>
+    <text x="656" y="420" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#332d1c" opacity="0.7" text-decoration="line-through">Sourdough bread</text>
+    <!-- Tag -->
+    <rect x="644" y="432" width="30" height="14" rx="7" fill="#dcfce7"/>
+    <text x="649" y="442" font-family="system-ui, -apple-system, sans-serif" font-size="7" fill="#166534">personal</text>
+  </g>
+
+  <!-- Empty state hint at bottom -->
+  <text x="696" y="540" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Click + to add a new note</text>
+
+  <!-- Title text (hero caption) -->
+  <text x="120" y="420" font-family="system-ui, -apple-system, sans-serif" font-size="36" fill="#0f172a" font-weight="800" letter-spacing="-0.5">Chrome Notes</text>
+  <text x="120" y="456" font-family="system-ui, -apple-system, sans-serif" font-size="36" fill="#4f46e5" font-weight="800" letter-spacing="-0.5">Sidebar</text>
+  <text x="120" y="490" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#64748b" font-weight="400">Pale-yellow sticky notes in your</text>
+  <text x="120" y="512" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#64748b" font-weight="400">Chrome side panel. Always visible,</text>
+  <text x="120" y="534" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#64748b" font-weight="400">always ready.</text>
+
+  <!-- Feature badges below title -->
+  <g transform="translate(120, 560)">
+    <rect x="0" y="0" width="70" height="24" rx="12" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1"/>
+    <text x="35" y="16" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#4f46e5" font-weight="600" text-anchor="middle">v1.4.4</text>
+    
+    <rect x="82" y="0" width="90" height="24" rx="12" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1"/>
+    <text x="127" y="16" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#4f46e5" font-weight="600" text-anchor="middle">Manifest V3</text>
+    
+    <rect x="184" y="0" width="70" height="24" rx="12" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1"/>
+    <text x="219" y="16" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#4f46e5" font-weight="600" text-anchor="middle">GPL-3.0</text>
+  </g>
+</svg>

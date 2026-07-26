@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 340" width="420" height="340">
+  <defs>
+    <filter id="s" x="-5%" y="-5%" width="115%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="rgba(0,0,0,0.12)"/>
+    </filter>
+    <linearGradient id="d" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="a" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+  </defs>
+  <rect width="420" height="340" rx="16" fill="url(#d)"/>
+  <rect x="0" y="0" width="420" height="44" rx="16" fill="#1e293b"/>
+  <rect x="0" y="28" width="420" height="16" fill="#1e293b"/>
+  <!-- Moon icon -->
+  <circle cx="24" cy="22" r="7" fill="none" stroke="#38bdf8" stroke-width="1.5"/>
+  <path d="M26 18a6 6 0 0 0 0 8" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="38" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#f8fafc" font-weight="700">Dark Mode</text>
+
+  <!-- Note in dark mode -->
+  <g filter="url(#s)">
+    <rect x="20" y="60" width="380" height="72" rx="10" fill="#fffbe6" stroke="#d4caa7" stroke-width="1"/>
+    <text x="32" y="82" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#2c2514" font-weight="700">Grocery list</text>
+    <rect x="32" y="94" width="7" height="7" rx="1.5" fill="none" stroke="#2c2514" stroke-width="1"/>
+    <text x="44" y="101" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#2c2514">Avocados</text>
+    <rect x="32" y="110" width="7" height="7" rx="1.5" fill="none" stroke="#2c2514" stroke-width="1"/>
+    <polyline points="32.5,113.5 35,116 39,111" stroke="#22c55e" stroke-width="2" fill="none"/>
+    <text x="44" y="118" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#2c2514" opacity="0.7" text-decoration="line-through">Sourdough bread</text>
+    <!-- Tags -->
+    <rect x="290" y="74" width="34" height="16" rx="8" fill="#dcfce7"/>
+    <text x="307" y="85" font-family="system-ui, -apple-system, sans-serif" font-size="7" fill="#166534" text-anchor="middle">personal</text>
+  </g>
+
+  <g filter="url(#s)">
+    <rect x="20" y="144" width="380" height="72" rx="10" fill="#fffbe6" stroke="#d4caa7" stroke-width="1"/>
+    <text x="32" y="166" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#2c2514" font-weight="700">Ideas for blog post</text>
+    <text x="32" y="182" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#2c2514">• Chrome extension dev tips</text>
+    <text x="32" y="198" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#2c2514">• Side panel UX best practices</text>
+    <rect x="290" y="158" width="26" height="16" rx="8" fill="#fef3c7"/>
+    <text x="303" y="169" font-family="system-ui, -apple-system, sans-serif" font-size="7" fill="#92400e" text-anchor="middle">ideas</text>
+  </g>
+
+  <!-- Side panel / app background hint -->
+  <rect x="20" y="232" width="380" height="28" rx="6" fill="#334155"/>
+  <text x="48" y="250" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#94a3b8">Side panel adapts to your system theme</text>
+  <circle cx="366" cy="246" r="8" fill="#6366f1"/>
+  <path d="M362 246h8M366 242v8" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+
+  <!-- System theme toggle mockup -->
+  <g transform="translate(60, 278)">
+    <rect x="0" y="0" width="300" height="40" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <!-- Sun icon -->
+    <circle cx="24" cy="20" r="6" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+    <g stroke="#fbbf24" stroke-width="1" stroke-linecap="round">
+      <line x1="24" y1="10" x2="24" y2="8"/>
+      <line x1="24" y1="30" x2="24" y2="32"/>
+      <line x1="14" y1="20" x2="12" y2="20"/>
+      <line x1="34" y1="20" x2="36" y2="20"/>
+      <line x1="17" y1="13" x2="15.5" y2="11.5"/>
+      <line x1="30" y1="27" x2="31.5" y2="28.5"/>
+    </g>
+    <text x="48" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">System</text>
+    <rect x="100" y="12" width="16" height="16" rx="4" fill="#6366f1">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="126" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#94a3b8">Light</text>
+    <rect x="180" y="12" width="16" height="16" rx="4" fill="#334155"/>
+    <text x="206" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#94a3b8">Dark</text>
+  </g>
+</svg>
