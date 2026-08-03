@@ -1217,6 +1217,31 @@ input:focus-visible {
   opacity: 0.6;
 }
 
+/* Link styling inside note editor view */
+.editor-content-view a {
+  color: #4f46e5; /* High-contrast brand color on note's pale-yellow background */
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.editor-content-view a:hover {
+  color: #312e81; /* Darker hover state for interactive feedback */
+}
+
+.editor-content-view a:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Make links inside preview cards look consistent, though pointer-events are disabled */
+.note-card-body a {
+  color: #4f46e5;
+  text-decoration: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -1,6 +1,6 @@
 # Chrome Web Store Listing — Chrome Notes Sidebar
 
-> Last Updated: 2026-07-18
+> Last Updated: 2026-07-31
 
 ## Store Listing
 
@@ -21,7 +21,7 @@ Key Features:
 - Action Menu: hover over any card and click the ellipsis (three-dots) icon to access pin/unpin and deletion actions.
 - Secure local storage: all notes are kept privately on your device.
 - Direct editing: click any note to update its raw content.
-- Markdown support: use double asterisks for bolding, hyphens for lists, and checkboxes for checklist items.
+- Markdown support: use double asterisks for bolding, hyphens for lists, checkboxes for checklist items, and markdown links ([description](link)).
 - Live checklists: check and uncheck tasks in view mode without entering edit mode.
 - Deletion safety: confirmation overlay to prevent accidental note removals.
 - High performance: zero tracking, no remote databases, and no battery-draining backgrounds.
@@ -112,6 +112,7 @@ https://github.com/russell/chrome-notes-sidebar/issues
 
 | Version | Date | Changes | Status |
 |---------|------|---------|--------|
+| 1.5.0 | 2026-07-31 | Markdown Links Support: Added parsing for markdown-style links (`[description](link)`) using a balanced parentheses regex, with automatic protocol prefixing for web addresses and security filtering (blocking javascript: protocols), styled in accessible high-contrast brand indigo. | Draft |
 | 1.4.4 | 2026-07-18 | UI Fix: Adjusted note preview body text max-height from 2.6rem to 2.8rem to better accommodate multi-paragraph space rendering under line-clamp. | Draft |
 | 1.4.3 | 2026-07-18 | UI Fix: Adjusted note preview body text max-height from 2.4rem to 2.6rem for slightly better paragraph layout spacing tolerance. | Draft |
 | 1.4.2 | 2026-07-18 | Font Optimization: Bundled the Inter font locally (.woff2 files) in the extension to bypass default Chrome extension CSP and ensure 'Inter' renders correctly everywhere. | Draft |

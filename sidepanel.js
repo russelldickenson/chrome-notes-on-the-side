@@ -869,12 +869,32 @@ function escapeHtml(str) {
     .replace(/'/g, '&#039;');
 }
 
-// Safe Inline Markdown parsing (bold elements)
+// Sanitizes URLs for safe rendering in anchor tags
+function sanitizeUrl(url) {
+  const trimmed = url.trim();
+  if (trimmed.toLowerCase().startsWith('javascript:')) {
+    return '#';
+  }
+  // Check if it starts with #, /, //, or a valid protocol scheme
+  if (trimmed.startsWith('#') || trimmed.startsWith('/') || trimmed.startsWith('//') || /^[a-z0-9+.-]+:/i.test(trimmed)) {
+    return trimmed;
+  }
+  // Otherwise, default to external https link
+  return 'https://' + trimmed;
+}
+
+// Safe Inline Markdown parsing (bold elements and links)
 function parseInlineMarkdown(str) {
   const escaped = escapeHtml(str);
   // Matches **text** non-greedily and replaces with strong tag
-  return escaped.replace(/\*\frac{n(n+1)}{2}\*\*/g, '<strong>$1</strong>')
-                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  const withBold = escaped.replace(/\*\frac{n(n+1)}{2}\*\*/g, '<strong>$1</strong>')
+                          .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  
+  // Matches [description](link) supporting balanced parentheses inside link part
+  return withBold.replace(/\[([^\]]+)\]\(((?:[^()]+|\([^()]*\))*)\)/g, (match, desc, url) => {
+    const safeUrl = sanitizeUrl(url);
+    return `<a href="${safeUrl}" target="_blank" rel="noopener noreferrer">${desc}</a>`;
+  });
 }
 
 // Safe Custom Markdown line-by-line parser
