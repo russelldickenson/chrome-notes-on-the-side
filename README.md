@@ -2,7 +2,7 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="svg/hero.svg">
-    <img src="svg/hero.svg" alt="Chrome Notes Sidebar — pale-yellow sticky notes in your Chrome side panel" width="100%">
+    <img src="svg/hero.svg" alt="Chrome Notes Sidebar — Sticky notes in your Chrome side panel" width="100%">
   </picture>
 </p>
 
@@ -11,7 +11,7 @@
 **Persistent sticky notes that live in Chrome's side panel.**
 **Always visible, always ready.**
 
-[![Version](https://img.shields.io/badge/version-1.4.4-4f46e5?style=flat-square)](manifest.json)
+[![Version](https://img.shields.io/badge/version-1.5.0f46e5?style=flat-square)](manifest.json)
 [![License](https://img.shields.io/badge/license-GPL--3.0-4f46e5?style=flat-square)](LICENSE)
 [![Manifest](https://img.shields.io/badge/manifest-v3-4f46e5?style=flat-square)](manifest.json)
 [![Chrome](https://img.shields.io/badge/chrome-required-4f46e5?style=flat-square)](https://chrome.google.com/webstore)
@@ -97,6 +97,7 @@ Chrome Notes Sidebar places a familiar **pale-yellow sticky note** dashboard in 
 | Bullet list | `- item` | • item |
 | Checklist | `- [ ] task` | ☐ task |
 | Checked item | `- [x] done` | ☑ done |
+| Link | `[target](url)` | [target](url) |
 
 ### Keyboard shortcuts
 
@@ -123,6 +124,7 @@ Chrome Notes Sidebar places a familiar **pale-yellow sticky note** dashboard in 
 
 A full changelog is maintained in [CHROMEWEBSTORE.md](CHROMEWEBSTORE.md). Notable releases:
 
+- **1.5.0** - Added support for Markdown links - `[target](url)`
 - **v1.4.4** — Latest stable release
 - **v1.4.0** — Smart Markdown editor (auto-indent, prefix insertion)
 - **v1.3.0** — Data loss prevention safeguards
