@@ -12,6 +12,7 @@ let saveChain = Promise.resolve(true);
 let deleteDialogState = null;
 
 const NOTES_STORAGE_KEY = 'notes';
+const DELETED_NOTE_RETENTION_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
 
 // HTML Elements
 const headerListView = document.getElementById('header-list-view');
@@ -61,12 +62,24 @@ async function loadNotes() {
       const localData = localStorage.getItem('chrome_notes_fallback');
       rawNotes = localData ? JSON.parse(localData) : [];
     }
-    notesState = normalizeNotes(rawNotes);
+    const normalized = normalizeNotes(rawNotes);
+    notesState = purgeExpiredDeletedNotes(normalized);
 
     isStorageLoaded = true;
+
+    // Persist the purge if it actually dropped anything
+    if (notesState.length !== normalized.length) {
+      void saveNotes();
+    }
   } catch (error) {
     console.error('Failed to load notes from storage:', error);
   }
+}
+
+// Drop soft-deleted notes past their retention window so storage doesn't grow forever
+function purgeExpiredDeletedNotes(notes) {
+  const cutoff = Date.now() - DELETED_NOTE_RETENTION_MS;
+  return notes.filter(note => !note.deleted_at || note.deleted_at > cutoff);
 }
 
 function normalizeNotes(rawNotes) {
@@ -117,8 +130,12 @@ async function saveNotesNow() {
   try {
     if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
       const result = await chrome.storage.local.get(NOTES_STORAGE_KEY);
-      notesState = mergeNotes(normalizeNotes(result[NOTES_STORAGE_KEY]), notesState);
-      await chrome.storage.local.set({ [NOTES_STORAGE_KEY]: notesState });
+      const storedNotes = normalizeNotes(result[NOTES_STORAGE_KEY]);
+      notesState = mergeNotes(storedNotes, notesState);
+      // Skip the write (and the onChanged cascade it triggers in other tabs) when nothing actually changed
+      if (!notesMatch(notesState, storedNotes)) {
+        await chrome.storage.local.set({ [NOTES_STORAGE_KEY]: notesState });
+      }
     } else {
       localStorage.setItem('chrome_notes_fallback', JSON.stringify(notesState));
     }
@@ -573,7 +590,7 @@ function setupEventListeners() {
     if (!val) return;
     
     // Clean tag: remove leading #, keep casing, alphanumeric & dash/under only
-    const cleanedTag = val.replace(/^#+/, '').trim().replace(/[^a-zA-Z0-9-_]/g, '');
+    const cleanedTag = val.replace(/^#+/, '').trim().replace(/[^\p{L}\p{N}_-]/gu, '');
     if (cleanedTag) {
       const note = notesState.find(n => n.id === editingNoteId);
       if (note) {
@@ -872,14 +889,21 @@ function escapeHtml(str) {
 // Sanitizes URLs for safe rendering in anchor tags
 function sanitizeUrl(url) {
   const trimmed = url.trim();
-  if (trimmed.toLowerCase().startsWith('javascript:')) {
-    return '#';
-  }
-  // Check if it starts with #, /, //, or a valid protocol scheme
-  if (trimmed.startsWith('#') || trimmed.startsWith('/') || trimmed.startsWith('//') || /^[a-z0-9+.-]+:/i.test(trimmed)) {
+
+  // Relative/in-page links are always safe
+  if (trimmed.startsWith('#') || trimmed.startsWith('/') || trimmed.startsWith('//')) {
     return trimmed;
   }
-  // Otherwise, default to external https link
+
+  // Allowlist known-safe schemes; refuse everything else (javascript:, data:, vbscript:, etc.)
+  if (/^(https?|mailto):/i.test(trimmed)) {
+    return trimmed;
+  }
+  if (/^[a-z0-9+.-]+:/i.test(trimmed)) {
+    return '#';
+  }
+
+  // No scheme at all - default to external https link
   return 'https://' + trimmed;
 }
 
@@ -887,8 +911,7 @@ function sanitizeUrl(url) {
 function parseInlineMarkdown(str) {
   const escaped = escapeHtml(str);
   // Matches **text** non-greedily and replaces with strong tag
-  const withBold = escaped.replace(/\*\frac{n(n+1)}{2}\*\*/g, '<strong>$1</strong>')
-                          .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  const withBold = escaped.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
   
   // Matches [description](link) supporting balanced parentheses inside link part
   return withBold.replace(/\[([^\]]+)\]\(((?:[^()]+|\([^()]*\))*)\)/g, (match, desc, url) => {
